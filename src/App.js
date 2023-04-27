@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import BarraNav from "./componentes/BarraNav";
+import ItemListContainer from "./componentes/ItemListContainer";
+import ItemDetailContainer from "./componentes/ItemDetailContainer";
+import {BrowserRouter,Route, Routes} from "react-router-dom"
+// https://www.maybelline.com.ar/
+// https://www.sephora.com/beauty/international-websites
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <BrowserRouter>
+      <BarraNav/>
+        <Routes>
+          
+          <Route path="/" element={<ItemListContainer title="Maybelline"/>}/>
+          <Route path="/detail/:Id" element={<ItemDetailContainer />}/>
+
+        </Routes>
+      </BrowserRouter>
+    
     </div>
   );
 }
